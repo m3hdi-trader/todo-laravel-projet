@@ -6,7 +6,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [TodoController::class, 'index'])->name('todo.index');
 
-// category Route
+// Todo Route----------------------------------------------------------------
+Route::get('/todo/create', [TodoController::class, 'create'])->name('todo.create');
+Route::Post('/todo', [TodoController::class, 'store'])->name('todo.store');
+
+
+// category Route----------------------------------------------------
 
 Route::get('/categroies', [CategoryController::class, 'index'])->name('categroy.index');
 Route::get('/categroies/create', [CategoryController::class, 'create'])->name('categroy.create');
