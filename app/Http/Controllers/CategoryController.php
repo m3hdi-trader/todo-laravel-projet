@@ -30,4 +30,29 @@ class CategoryController extends Controller
         ]);
         return redirect()->route('categroy.index');
     }
+
+    public function edit(Category $category)
+    {
+        return view('categories.edit', compact('category'));
+    }
+
+    public function update(Category $category, Request $request)
+    {
+        // dd($category, $request->all());
+
+        $request->validate([
+            'title' => 'required|min:5'
+        ]);
+        $category::create([
+            'title' => $request->title
+        ]);
+        return redirect()->route('categroy.index');
+    }
+
+    public function destroy(Category $category)
+    {
+        // dd($category);
+        $category->delete();
+        return redirect()->route('categroy.index');
+    }
 }
