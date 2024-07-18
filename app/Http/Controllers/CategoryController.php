@@ -28,7 +28,7 @@ class CategoryController extends Controller
         Category::create([
             'title' => $request->title
         ]);
-        return redirect()->route('categroy.index');
+        return redirect()->route('category.index');
     }
 
     public function edit(Category $category)
@@ -43,16 +43,16 @@ class CategoryController extends Controller
         $request->validate([
             'title' => 'required|min:5'
         ]);
-        $category::create([
+        $category->update([
             'title' => $request->title
         ]);
-        return redirect()->route('categroy.index');
+        return redirect()->route('category.index');
     }
 
     public function destroy(Category $category)
     {
         // dd($category);
         $category->delete();
-        return redirect()->route('categroy.index');
+        return redirect()->route('category.index');
     }
 }

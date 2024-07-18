@@ -4,7 +4,7 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="">Categories</h5>
-            <a href="{{ route('categroy.create') }}" class="btn btn-dark">create</a>
+            <a href="{{ route('category.create') }}" class="btn btn-dark">create</a>
         </div>
         <div class="card-body">
             <table class="table table-striped">
@@ -19,9 +19,9 @@
                         <tr>
                             <td>{{ $category->title }}</td>
                             <td class="d-flex">
-                                <a href={{ route('categroy.edit', ['category' => $category->id]) }}
+                                <a href={{ route('category.edit', ['category' => $category->id]) }}
                                     class="btn btn-sm btn-secondary">Edit</a>
-                                <form action="{{ route('categroy.destroy', ['category' => $category->id]) }}" method="POST">
+                                <form action="{{ route('category.destroy', ['category' => $category->id]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-sm btn-danger ms-2">Delete</button>

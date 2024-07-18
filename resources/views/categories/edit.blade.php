@@ -4,10 +4,10 @@
     <div class="card">
         <div class="card-header d-flex justify-content-between align-items-center">
             <h5 class="">Edit Category</h5>
-            <a href="{{ route('categroy.index') }}" class="btn btn-dark">back</a>
+            <a href="{{ route('category.index') }}" class="btn btn-dark">back</a>
         </div>
         <div class="card-body">
-            <form action="{{ route('categroy.update', ['category' => $category->id]) }}" method="POST">
+            <form action="{{ route('category.update', ['category' => $category->id]) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">
