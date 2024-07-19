@@ -8,7 +8,7 @@
             <a href={{ route('todo.create') }} class="btn btn-dark">create</a>
         </div>
         <div class="card-body">
-            <table class="table table-striped">
+            <table class="table table-striped align-middle">
                 <thead>
                     <tr>
                         <th>Image</th>
@@ -19,17 +19,21 @@
                 </thead>
                 <tbody>
                     @foreach ($todos as $todo)
-                        <tr class="align-middle">
+                        <tr>
                             <td>
-                                <img width="90" class=" rounded" src="{{ asset('images/' . $todo->image) }}"
-                                    alt="image">
+                                <img width="90" class=" rounded" src="{{ asset('images/' . $todo->image) }}" alt="image">
                             </td>
                             <td>{{ $todo->title }}</td>
                             <td>{{ $todo->category->title }}</td>
                             <td>
                                 <a href="{{ route('todo.show', ['todo' => $todo->id]) }}"
                                     class="btn btn-sm btn-secondary">Show</a>
-                                <button disabled class="btn btn-sm btn-outline-danger">Completed</button>
+                                @if ($todo->status)
+                                    <button disabled class="btn btn-sm btn-outline-danger">Completed</button>
+                                @else
+                                    <a href="{{ route('todo.completed', ['todo' => $todo->id]) }}"
+                                        class="btn btn-sm btn-info">Done?</a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

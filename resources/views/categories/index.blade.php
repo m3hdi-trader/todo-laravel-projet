@@ -7,7 +7,7 @@
             <a href="{{ route('category.create') }}" class="btn btn-dark">create</a>
         </div>
         <div class="card-body">
-            <table class="table table-striped">
+            <table class="table table-striped align-middle">
                 <thead>
                     <tr>
                         <th>Title</th>

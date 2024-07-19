@@ -21,6 +21,14 @@ class TodoController extends Controller
         return view('todos.show', compact('todo'));
     }
 
+    public function completed(Todo $todo)
+    {
+        $todo->update([
+            'status' => 1
+        ]);
+        return redirect()->route('todo.index');
+    }
+
     public function create()
     {
         $categories = Category::all();
@@ -49,5 +57,12 @@ class TodoController extends Controller
         ]);
 
         return redirect()->route('todo.index');
+    }
+
+    public function edit(Todo $todo)
+    {
+        $categories = Category::all();
+
+        return view('todos/edit', compact('todo', 'categories'));
     }
 }
