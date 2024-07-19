@@ -7,7 +7,7 @@
             <a href="{{ route('todo.index') }}" class="btn btn-dark">back</a>
         </div>
         <div class="card-body">
-            <form action="#" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('todo.update', ['todo' => $todo->id]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="mb-3">

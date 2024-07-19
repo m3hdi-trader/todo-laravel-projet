@@ -28,11 +28,17 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Description</label>
-                <textarea disabled class="form-control" name="{{ $todo->description }}" rows="3">Lorem ipsum dolor sit amet consectetur adipisicing.</textarea>
+                <textarea disabled class="form-control" name="description" rows="3">{{ $todo->description }}</textarea>
             </div>
-            <div>
+            <div class="d-flex">
                 <a href="{{ route('todo.edit', ['todo' => $todo->id]) }}" class="btn btn-secondary">Edit</a>
-                <a href="#" class="btn btn-danger">Delete</a>
+                <form action="{{ route('todo.destroy', ['todo' => $todo->id]) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger ms-2">Delete</button>
+
+
+                </form>
             </div>
         </div>
     </div>

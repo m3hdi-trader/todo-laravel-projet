@@ -12,6 +12,9 @@ Route::get('/todos/{todo}/completed', [TodoController::class, 'completed'])->nam
 Route::get('/todo/create', [TodoController::class, 'create'])->name('todo.create');
 Route::Post('/todo', [TodoController::class, 'store'])->name('todo.store');
 Route::get('/todos/{todo}/edit', [TodoController::class, 'edit'])->name('todo.edit');
+Route::put('/todos/{todo}', [TodoController::class, 'update'])->name('todo.update');
+Route::delete('/todos/{todo}', [TodoController::class, 'destroy'])->name('todo.destroy');
+
 
 
 // category Route----------------------------------------------------
